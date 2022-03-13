@@ -1,0 +1,23 @@
+{% load static %}
+<nav class="navbar navbar-dark bg-dark mb-3">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'mainApp:index' %}">
+          <img src=" {% static 'images/opLogo.png' %}" alt="" width="40" class="d-inline-block align-text-center">
+          Task Management System
+        </a>
+        <div class="">            
+            <ul class="nav navbar-nav navbar-right">
+                <li>                    
+                    <div class="btn-nav">
+                        {% if  request.user.is_authenticated %}
+                            <a class="btn btn-primary btn-small navbar-btn" href="{% url 'accounts:logout' %}" class="">Logout</a>
+                        {% else %}        
+                            <a class="btn btn-primary btn-small navbar-btn" href="{% url 'accounts:login' %}">Login</a>
+                    </div>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+   </div>
+    
+</nav>
